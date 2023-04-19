@@ -11,7 +11,7 @@ import {
 } from './ContactItem.styled';
 
 export const ContactItem = ({ contact }) => {
-  const { name, phone, id } = contact;
+  const { name, number, id } = contact;
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export const ContactItem = ({ contact }) => {
     <Contact>
       <div>
         <ContactName>{name}</ContactName>
-        <ContactNumber>Tel: {phone}</ContactNumber>
+        <ContactNumber>Tel: {number}</ContactNumber>
       </div>
       <ContactBtn type="button" onClick={handleDelete}>
         Delete
@@ -33,7 +33,7 @@ export const ContactItem = ({ contact }) => {
 ContactItem.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }),
 };
