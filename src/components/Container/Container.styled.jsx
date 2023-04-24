@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.div`
-  max-width: 400px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;

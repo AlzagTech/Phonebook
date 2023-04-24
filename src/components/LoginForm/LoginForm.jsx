@@ -1,3 +1,10 @@
+import { Container } from 'components/Container/Container';
+import {
+  Form,
+  FormBtn,
+  FormInput,
+  FormLabel,
+} from 'components/RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
@@ -17,16 +24,18 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Container>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <label>
+          <FormLabel>Email</FormLabel>
+          <FormInput type="email" name="email" />
+        </label>
+        <label>
+          <FormLabel>Password</FormLabel>
+          <FormInput type="password" name="password" />
+        </label>
+        <FormBtn type="submit">Log In</FormBtn>
+      </Form>
+    </Container>
   );
 };

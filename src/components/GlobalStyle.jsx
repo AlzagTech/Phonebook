@@ -6,8 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #e7ecf2;
     padding: 15px;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    font-family: Montserrat,
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,5 +35,8 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
-  
+
+  button {
+  font-family: inherit;
+}
 `;
