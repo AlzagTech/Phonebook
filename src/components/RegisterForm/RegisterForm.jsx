@@ -1,42 +1,59 @@
 import { useDispatch } from 'react-redux';
+import { Formik } from 'formik';
+
 import { register } from 'redux/auth/operations';
 
-import { Container } from 'components/Container/Container';
-import { Form, FormBtn, FormInput, FormLabel } from './RegisterForm.styled';
+import {
+  Form,
+  FormBtn,
+  FormInput,
+  FormLabel,
+} from 'components/ContactForm/Form.styles';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} autoComplete="off">
+    <Formik
+      initialValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={handleSubmit}
+    >
+      <Form autoComplete="off">
         <label>
           <FormLabel>Username</FormLabel>
-          <FormInput variant="filled" type="text" name="name" />
+          <FormInput
+            id="name"
+            variant="filled"
+            type="text"
+            name="name"
+            required
+          />
         </label>
         <label>
           <FormLabel>Email</FormLabel>
-          <FormInput type="email" name="email" />
+          <FormInput
+            id="email"
+            type="email"
+            name="email"
+            pattern="[^@\s]+@[^@\s]+"
+            required
+          />
         </label>
         <label>
           <FormLabel>Password</FormLabel>
-          <FormInput type="password" name="password" />
+          <FormInput id="password" type="password" name="password" required />
         </label>
         <FormBtn type="submit">Register</FormBtn>
       </Form>
-    </Container>
+    </Formik>
   );
 };

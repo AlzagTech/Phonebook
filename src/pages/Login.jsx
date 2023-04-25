@@ -1,13 +1,12 @@
-// import { Helmet } from 'react-helmet';
+import { Container } from 'components/Container/Container';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 export default function Login() {
   return (
-    <div>
-      {/* <Helmet> */}
-      <title>Login</title>
-      {/* </Helmet> */}
-      <LoginForm />
-    </div>
+    <section>
+      <Container>
+        <LoginForm />
+      </Container>
+    </section>
   );
 }

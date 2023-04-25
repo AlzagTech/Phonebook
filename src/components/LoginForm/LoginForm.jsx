@@ -1,41 +1,49 @@
-import { Container } from 'components/Container/Container';
+import { useDispatch } from 'react-redux';
+import { Formik } from 'formik';
+
+import { logIn } from 'redux/auth/operations';
+
 import {
   Form,
   FormBtn,
   FormInput,
   FormLabel,
-} from 'components/RegisterForm/RegisterForm.styled';
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
+} from 'components/ContactForm/Form.styles';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+
+    actions.resetForm();
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} autoComplete="off">
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+      }}
+      onSubmit={handleSubmit}
+    >
+      <Form autoComplete="off">
         <label>
           <FormLabel>Email</FormLabel>
-          <FormInput type="email" name="email" />
+          <FormInput
+            id="email"
+            type="email"
+            name="email"
+            pattern="[^@\s]+@[^@\s]+"
+            required
+          />
         </label>
         <label>
           <FormLabel>Password</FormLabel>
-          <FormInput type="password" name="password" />
+          <FormInput id="password" type="password" name="password" required />
         </label>
         <FormBtn type="submit">Log In</FormBtn>
       </Form>
-    </Container>
+    </Formik>
   );
 };

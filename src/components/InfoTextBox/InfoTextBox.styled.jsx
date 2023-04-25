@@ -7,15 +7,11 @@ export const TextBox = styled.div`
   padding-bottom: 8px;
 `;
 
-export const ContentBox = styled.div`
-  padding-top: 48px;
-  padding-bottom: 48px;
-`;
-
 export const WelcomeMessage = styled.p`
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 
   font-size: 28px;
+  font-weight: 500;
   text-align: center;
 `;
 

@@ -14,3 +14,20 @@ export const UserMenuBox = styled.div`
     text-transform: capitalize;
   }
 `;
+
+export const LogoutBtn = styled.button`
+  padding: 4px;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  border: none;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #e6e3e3;
+  }
+`;

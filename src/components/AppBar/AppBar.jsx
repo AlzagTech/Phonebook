@@ -8,15 +8,14 @@ import { NavBox } from './AppBar.styled';
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
-  return (
-    <Container>
-      <header>
-        <NavBox>
-          <Navigation />
+  const ContainerStyles = { paddingTop: 0, paddingBottom: 0 };
 
-          {isLoggedIn ? <UserMenu /> : <AuthNav />}
-        </NavBox>
-      </header>
+  return (
+    <Container style={ContainerStyles}>
+      <NavBox>
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </NavBox>
     </Container>
   );
 };

@@ -1,6 +1,6 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 
-import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 
@@ -10,7 +10,7 @@ import {
   FormBtn,
   FormLabel,
   FormErrorMessage,
-} from './ContactForm.styles';
+} from './Form.styles';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);

@@ -9,12 +9,8 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
-
   label + label {
     margin-top: 16px;
-    margin-bottom: 30px;
   }
 `;
 
@@ -39,6 +35,8 @@ export const FormInput = styled(FormikField)`
 `;
 
 export const FormBtn = styled.button`
+  margin-top: 30px;
+
   padding-top: 10px;
   padding-bottom: 10px;
 

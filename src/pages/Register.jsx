@@ -1,10 +1,12 @@
+import { Container } from 'components/Container/Container';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 export default function Register() {
   return (
-    <div>
-      <title>Registration</title>
-      <RegisterForm />
-    </div>
+    <section>
+      <Container>
+        <RegisterForm />
+      </Container>
+    </section>
   );
 }

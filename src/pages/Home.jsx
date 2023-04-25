@@ -3,7 +3,6 @@ import { useAuth } from 'hooks';
 
 import { Container } from 'components/Container/Container';
 import {
-  ContentBox,
   HomePageMessage,
   WelcomeMessage,
 } from 'components/InfoTextBox/InfoTextBox.styled';
@@ -11,9 +10,11 @@ import {
 const HomePage = () => {
   const { isLoggedIn } = useAuth();
 
+  const ContainerStyles = { paddingTop: 60, paddingBottom: 60 };
+
   return (
-    <Container>
-      <ContentBox>
+    <section>
+      <Container style={ContainerStyles}>
         <WelcomeMessage>Welcome to Phonebook 👋</WelcomeMessage>
         {isLoggedIn ? (
           <HomePageMessage>
@@ -30,8 +31,8 @@ const HomePage = () => {
             </HomePageMessage>
           </>
         )}
-      </ContentBox>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
